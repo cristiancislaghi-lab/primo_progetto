@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import datetime
 
 # Create your views here.
 def es_if(request):
@@ -18,3 +19,11 @@ def if_else_elif(request):
     'var3': 300 }
     #Calling the render() method to render the request from es_if.html page by using the dictionary, dic
     return render (request, "if_else_elif.html", dic)
+
+
+def es_for(request):
+    #https://www.decodejava.com/django-template-if-tag.htm
+    #Creating a dictionary of key-value pairs
+    dic = { 'list1': [1, datetime.date(2019,7,16), 'Do not give up!'], 'list2': [1, datetime.date (2019,7,16), 'Do not give up!'], 'my_dict': {'chiave1':'Valore 1', 'chiave2':'Valore 2'} }
+    #Calling the render() method to render the request from es_if.html page by using the dictionary, dic
+    return render (request, "es_for.html", dic)

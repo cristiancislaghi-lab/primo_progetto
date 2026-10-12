@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title%}
+    {{block.super}} | FOR
+{%endblock title%}
+{%block content%}
+    <h2>Contenuto del dizionario</h2>
+    <ul>
+        {% for key, value in my_dict.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    Looping over a sequence of items using <b>forloop.counter</b> variabile:
+    <br/>
+    {% for x in list2%}
+        <i>{{ forloop.counter }} </i>: {{ x }}<br>
+    {% endfor %}
+    <br/>
+    Looping over a sequence of items using <b>forloop.counter0</b> variabile:
+    <br/>
+    {% for x in list2 %}
+        <i>{{ forloop.counter0 }}</i>: {{ x }}<br/>
+    {% endfor %}
+    <br/>
+    Printing the first element of sequence using <b>foorloop.first</b> variabile:
+    <br/>
+    {% for x in list2 %}
+        {% if forloop.first %}
+            <i>The first item</i> - {{ x }}
+        {% endif %}
+    {% endfor %}
+    <br/>
+    <br/>
+    Printing the last element of sequence using <b>foorloop.last</b> variabile:
+    <br/>
+    {% for x in list2 %}
+        {% if forloop.last %}
+            <i>The last items</i> - {{ x }}
+        {% endif %}
+    {% endfor %}
+    <br/>
+    <br/>
+    Printing the reversed sequence of items using <b>reversed</b> attribute of <b>for</b> tag: <br/>
+    {% for x in list2 reversed %}
+        <i>Item</i> - {{ x }}<br/>
+    {% endfor %}
+{% endblock content%}

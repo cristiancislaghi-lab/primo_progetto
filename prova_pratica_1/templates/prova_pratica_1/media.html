@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{%block title%}
+        {{block.super}} | Media
+{%endblock title%}
+{%block content%}
+<h2>Contenuto del dizionario</h2>
+    <ul>
+        {% for x in list2 %}
+            <li>{{ x }}</li>
+        {% endfor %}
+    </ul>
+
+
+<b> media = {{ media }}</b> <br/>
+
+{%endblock content%}

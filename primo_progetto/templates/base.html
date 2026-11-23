@@ -55,6 +55,18 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          News
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'news:index_news'%}">index news</a>
+          <a class="dropdown-item" href="{% url 'news:homepage'%}">home news</a>
+          <a class="dropdown-item" href="{% url 'news:lista_articoli'%}">Articoli</a>
+          <a class="dropdown-item" href="{% url 'news:lista_giornalisti'%}">Giornalisti</a>
+          <a class="dropdown-item" href="{% url 'news:query_base'%}">Query</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Prova pratica 1
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

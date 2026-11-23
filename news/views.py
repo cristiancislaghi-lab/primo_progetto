@@ -51,6 +51,16 @@ def listaArticoli (request, pk=None):
     }
     return render (request, 'lista_articoli.html', context)
 
+def listaGiornalisti (request, pk=None):
+    if pk==None:
+        giornalisti = Giornalista.objects.all()
+    else:
+        giornalisti = get_object_or_404(Giornalista, pk=pk)
+    context= {
+        'giornalisti': giornalisti,
+    }
+    return render (request, 'lista_giornalisti.html', context)
+
 def queryBase(request):
     articoli_cognome = Articolo.objects.filter(giornalista__cognome='Rossi')
     numero_totale_articoli = Articolo.objects.count()
@@ -104,3 +114,19 @@ def queryBase(request):
         'articoli_con_not': articoli_con_not,
     }
     return render(request, "query.html", context)
+
+def giornalistaDetailView(request, pk=None):
+    if pk==None:
+            giornalista= Giornalista.objects.all()
+            articoli = Articolo.objects.all()
+    else:
+        articoli = Articolo.objects.filter(giornalista_id=pk)
+        giornalista = get_object_or_404(Giornalista, pk=pk)
+    context= {
+        "giornalista": giornalista,
+        "articoli": articoli,
+    }
+    return render (request, "giornalista_detail.html", context)
+
+def index_news(request):
+    return render(request,"news/index_news.html")

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ giornalista.cognome }} {{ giornalista.nome }}
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ giornalista.cognome }} {{ giornalista.nome }}</h1>
+    <h3>nato il {{ giornalista.anno_di_nascita }}</h3>
+    <h5>Tutti i suoi articoli e visualizzazioni:</h5>
+    <ul>
+    {% for articolo in articoli %}
+        <li>
+            <p><strong>Autore: </strong>
+                {% comment %} metodo corretto per creare link {% endcomment %}
+                <a href="{% url 'news:giornalista_detail' articolo.giornalista.id %}">{{ articolo.giornalista }}</a>
+            </p>
+            <p><strong>Titolo: </strong>
+                {% comment %} metodo non ottimale per creare link {% endcomment %}
+                <a href="/news/articoli/{{ articolo.id }}">{{ articolo.titolo }}</a>
+            </p>
+            <p><strong>Contenuto: </strong>
+                {{ articolo.contenuto }}
+            </p>
+            
+            <hr>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock content %}
